@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
+import styles from "../../styles/jobList.module.css";
 
 const JobList = () => {
   const { authToken, logout } = useContext(AuthContext);
@@ -31,15 +32,15 @@ const JobList = () => {
   };
 
   return (
-    <div>
-      <h2>Your Job Postings</h2>
+    <div className={styles.container}>
+      <h2 className={styles.jobTitle}>Your Job Postings</h2>
       <button onClick={handleLogout}>Logout</button>
       <Link to="/create-job">Post a New Job</Link>
       <ul>
         {jobs.map((job) => (
           <li key={job._id}>
             <h3>{job.title}</h3>
-            <p>{job.description}</p>
+            <p className={styles.description}>{job.description}</p>
             <p>Experience Level: {job.experienceLevel}</p>
             <p>End Date: {new Date(job.endDate).toLocaleDateString()}</p>
             <Link to={`/send-alerts/${job._id}`}>Send Alerts</Link>

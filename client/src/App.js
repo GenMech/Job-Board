@@ -7,6 +7,7 @@ import Login from "./components/Auth/login";
 import JobList from "./components/Jobs/jobList";
 import CreateJob from "./components/Jobs/createJob";
 import SendAlerts from "./components/Jobs/sendAlerts";
+import "./App.css";
 
 function App() {
   return (

@@ -48,30 +48,32 @@ const CreateJob = () => {
   };
 
   return (
-    <div>
-      <h2>Create a New Job</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label>Job Title:</label>
+    <div className="create-job-container">
+      <h2>Create a New Job Listing</h2>
+      <form onSubmit={onSubmit} className="create-job-form">
+        <div className="input-group">
+          <label>Job Title</label>
           <input
             type="text"
             name="title"
             value={title}
             onChange={onChange}
+            placeholder="Enter Job Title"
             required
           />
         </div>
-        <div>
-          <label>Job Description:</label>
+        <div className="input-group">
+          <label>Job Description</label>
           <textarea
             name="description"
             value={description}
             onChange={onChange}
+            placeholder="Enter Job Description"
             required
           />
         </div>
-        <div>
-          <label>Experience Level:</label>
+        <div className="input-group">
+          <label>Experience Level</label>
           <select
             name="experienceLevel"
             value={experienceLevel}
@@ -83,18 +85,19 @@ const CreateJob = () => {
             <option value="Senior">Senior</option>
           </select>
         </div>
-        <div>
-          <label>Candidate Emails (comma separated):</label>
+        <div className="input-group">
+          <label>Candidate Emails</label>
           <input
             type="text"
             name="candidates"
             value={candidates}
             onChange={onChange}
+            placeholder="Comma separated emails"
             required
           />
         </div>
-        <div>
-          <label>End Date:</label>
+        <div className="input-group">
+          <label>End Date</label>
           <input
             type="date"
             name="endDate"
@@ -103,7 +106,9 @@ const CreateJob = () => {
             required
           />
         </div>
-        <button type="submit">Post Job</button>
+        <button type="submit" className="btn">
+          Post Job
+        </button>
       </form>
     </div>
   );

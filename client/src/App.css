@@ -7,6 +7,104 @@
   pointer-events: none;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 14px;
+  padding: 8px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 50%;
+  margin-inline: auto;
+}
+
+.login-left {
+  flex: 1;
+  padding: 2rem;
+}
+
+.login-right {
+  flex: 1;
+  padding: 2rem;
+  background: #f7f7f7;
+  border-radius: 8px;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.error {
+  color: red;
+}
+
+.register-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 50%;
+  margin-inline: auto;
+}
+.register-left,
+.register-right {
+  flex: 1;
+  padding: 2rem;
+}
+.register-right {
+  background: #f7f7f7;
+  border-radius: 8px;
+}
+
+.create-job-container {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  margin-inline: auto;
+  border: #000000;
+  border-radius: 2px;
+  border-width: 2px;
+  border-style: solid;
+}
+.create-job-form .input-group {
+  margin-bottom: 1rem;
+}
+.create-job-form .input-group textarea {
+  height: 100px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

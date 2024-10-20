@@ -30,55 +30,67 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Company Registration</h2>
-      {authError && <p style={{ color: "red" }}>{authError}</p>}
-      <form onSubmit={onSubmit}>
-        <div>
-          <label>Company Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={onChange}
-            placeholder="Name"
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={onChange}
-            placeholder="Company Email"
-            required
-          />
-        </div>
-        <div>
-          <label>Mobile:</label>
-          <input
-            type="text"
-            name="mobile"
-            value={mobile}
-            onChange={onChange}
-            placeholder="Phone no."
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
+    <div className="register-container">
+      <div className="register-left">
+        <h2>Join Our Platform!</h2>
+        <p>
+          Create your company profile and list your job openings for top
+          talents.
+        </p>
+      </div>
+      <div className="register-right">
+        <h2>Sign Up</h2>
+        {authError && <p className="error">{authError}</p>}
+        <form onSubmit={onSubmit}>
+          <div className="input-group">
+            <label>Company Name</label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={onChange}
+              placeholder="Company Name"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={onChange}
+              placeholder="Company Email"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Mobile</label>
+            <input
+              type="text"
+              name="mobile"
+              value={mobile}
+              onChange={onChange}
+              placeholder="Phone no."
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" className="btn">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
