@@ -27,8 +27,12 @@ exports.register = async (req, res) => {
 
     await company.save();
 
+    console.log(`${process.env.BASE_URL}/api/auth/verify/${verificationToken}`);
+
     const verificationUrl = `${process.env.BASE_URL}/api/auth/verify/${verificationToken}`;
     const message = `Please verify your email by clicking the following link: ${verificationUrl}`;
+
+    console.log("message:", message);
 
     await sendEmail({
       to: email,
@@ -36,6 +40,7 @@ exports.register = async (req, res) => {
       text: message,
     });
 
+    console.log("Almost Complete");
     res
       .status(201)
       .json({ message: "Registration successful. Please verify your email." });

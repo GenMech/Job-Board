@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const SendAlerts = () => {
   const { authToken } = useContext(AuthContext);
   const { jobId } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   const [candidateEmails, setCandidateEmails] = useState("");
 
@@ -30,7 +30,7 @@ const SendAlerts = () => {
         }
       );
       alert(`Alerts sent to: ${res.data.emailsSent.join(", ")}`);
-      history.push("/dashboard");
+      history("/dashboard");
     } catch (error) {
       console.error(error.response?.data?.message || "Error sending alerts");
     }

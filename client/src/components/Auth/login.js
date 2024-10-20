@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/authContext";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login, authError } = useContext(AuthContext);
-  const history = useHistory();
+  const history = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(formData);
-      history.push("/dashboard");
+      history("/dashboard");
     } catch (error) {
       // Error handled in context
     }

@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const JobList = () => {
-  const { authToken } = useContext(AuthContext);
+  const { authToken, logout } = useContext(AuthContext);
   const [jobs, setJobs] = useState([]);
+  const history = useNavigate();
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -26,7 +27,7 @@ const JobList = () => {
 
   const handleLogout = () => {
     logout();
-    history.push("/login");
+    history("/login");
   };
 
   return (

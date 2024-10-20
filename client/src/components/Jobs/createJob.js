@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CreateJob = () => {
   const { authToken } = useContext(AuthContext);
-  const history = useHistory();
+  const history = useNavigate();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -41,7 +41,7 @@ const CreateJob = () => {
         }
       );
       alert("Job posted successfully");
-      history.push("/dashboard");
+      history("/dashboard");
     } catch (error) {
       console.error(error.response?.data?.message || "Error posting job");
     }

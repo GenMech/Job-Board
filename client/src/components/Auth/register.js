@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/authContext";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { register, authError } = useContext(AuthContext);
-  const history = useHistory();
+  const history = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -23,7 +23,7 @@ const Register = () => {
     try {
       await register(formData);
       alert("Registration successful. Please verify your email.");
-      history.push("/login");
+      history("/login");
     } catch (error) {
       // Error handled in context
     }

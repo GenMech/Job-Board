@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
-import PrivateRoute from "./utils/PrivateRoute";
+import PrivateRoute from "./utils/privateRoute";
 import Register from "./components/Auth/register";
 import Login from "./components/Auth/login";
 import JobList from "./components/Jobs/jobList";
@@ -14,14 +14,35 @@ function App() {
       <Router>
         <div>
           <h1>Job Posting Platform</h1>
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <PrivateRoute path="/dashboard" component={JobList} />
-            <PrivateRoute path="/create-job" component={CreateJob} />
-            <PrivateRoute path="/send-alerts/:jobId" component={SendAlerts} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <JobList />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/create-job"
+              element={
+                <PrivateRoute>
+                  <CreateJob />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/send-alerts/:jobId"
+              element={
+                <PrivateRoute>
+                  <SendAlerts />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
         </div>
       </Router>
     </AuthProvider>

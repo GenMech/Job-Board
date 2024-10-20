@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        authToken ? <Component {...props} /> : <Redirect to="/login" />
+        authToken ? <Component {...props} /> : <Navigate to="/login" />
       }
     />
   );
